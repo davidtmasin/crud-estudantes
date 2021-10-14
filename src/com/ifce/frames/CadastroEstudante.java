@@ -97,10 +97,13 @@ public class CadastroEstudante extends JInternalFrame {
 				
 				JOptionPane.showMessageDialog(btnCadastrar, "Estudante cadastrado com sucesso!");
 				
+				
 				txtNome.setText("");
 				txtIdade.setText("");
 				txtMatricula.setText("");
-				txtCPF.setText("");			
+				txtCPF.setText("");		
+				
+				txtNome.grabFocus();
 			
 			}
 		});

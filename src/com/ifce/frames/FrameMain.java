@@ -118,6 +118,7 @@ public class FrameMain extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Encerrar atividades.");
 		}
 		public void actionPerformed(ActionEvent e) {
+			
 			System.exit(0);
 			
 		}
