@@ -42,13 +42,28 @@ public class Listar extends JInternalFrame {
 		scrollPane.setBounds(8, 40, 218, 174);
 		getContentPane().add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
+		JTextArea txtListaResultado = new JTextArea();
+		scrollPane.setViewportView(txtListaResultado);
 		btnVoltarListar.setBounds(73, 225, 89, 23);
 		getContentPane().add(btnVoltarListar);
 		
 		JButton btnListar = new JButton("Listar");
-		btnListar.setBounds(85, 11, 64, 23);
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(int i=0;i<FrameMain.estudantes.size();i++) {
+					
+					String resultadoLista = FrameMain.estudantes.get(i).toString();
+					txtListaResultado.append(resultadoLista);
+					txtListaResultado.append("\n");
+					txtListaResultado.append("--------------------------------");
+					txtListaResultado.append("\n");
+					//System.out.println(FrameMain.estudantes.get(i).toString());
+					
+				}
+			}
+		});
+		btnListar.setBounds(73, 11, 89, 23);
 		getContentPane().add(btnListar);
 		setVisible(true);
 

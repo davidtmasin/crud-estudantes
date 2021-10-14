@@ -3,6 +3,7 @@ package com.ifce.frames;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -14,6 +15,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import com.ifce.estudante.Estudante;
+import javax.swing.JLabel;
+
 public class FrameMain extends JFrame {
 	JMenu menuSistema;
 	private JPanel contentPane;
@@ -24,6 +28,8 @@ public class FrameMain extends JFrame {
 	
 	CadastroEstudante cadastro;
 	Listar lista;
+	
+	public static ArrayList<Estudante> estudantes = new ArrayList<Estudante>();
 
 	/**
 	 * Launch the application.
@@ -87,6 +93,11 @@ public class FrameMain extends JFrame {
 		desktopPane = new JDesktopPane();
 		desktopPane.setBounds(0, 0, 254, 289);
 		getContentPane().add(desktopPane);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(FrameMain.class.getResource("/com/ifce/midias/bgFrameMain.jpeg")));
+		lblNewLabel.setBounds(0, 0, 254, 289);
+		desktopPane.add(lblNewLabel);
 
 	}
 	private class SwingAction extends AbstractAction {

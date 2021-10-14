@@ -1,18 +1,19 @@
 package com.ifce.frames;
 
-import java.awt.EventQueue;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 
+import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import com.ifce.estudante.Estudante;
 
 public class CadastroEstudante extends JInternalFrame {
 	private JTextField txtNome;
@@ -82,6 +83,27 @@ public class CadastroEstudante extends JInternalFrame {
 		txtCPF.setColumns(10);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String nome = txtNome.getText();
+				int idade = Integer.parseInt(txtIdade.getText());
+				String matricula = txtMatricula.getText();
+				String CPF = txtCPF.getText();
+								
+				Estudante estudante = new Estudante(nome, idade, matricula, CPF);
+				
+				FrameMain.estudantes.add(estudante);
+				
+				JOptionPane.showMessageDialog(btnCadastrar, "Estudante cadastrado com sucesso!");
+				
+				txtNome.setText("");
+				txtIdade.setText("");
+				txtMatricula.setText("");
+				txtCPF.setText("");			
+			
+			}
+		});
 		btnCadastrar.setBounds(64, 178, 108, 23);
 		getContentPane().add(btnCadastrar);
 		
