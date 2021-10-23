@@ -1,18 +1,17 @@
 package com.ifce.frames;
 
-import java.awt.EventQueue;
-
-import javax.swing.JInternalFrame;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
-import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class Listar extends JInternalFrame {
-
+	JTextArea txtListaResultado;
 	
 	/**
 	 * Create the frame.
@@ -42,7 +41,7 @@ public class Listar extends JInternalFrame {
 		scrollPane.setBounds(8, 40, 218, 174);
 		getContentPane().add(scrollPane);
 		
-		JTextArea txtListaResultado = new JTextArea();
+		txtListaResultado = new JTextArea();
 		scrollPane.setViewportView(txtListaResultado);
 		btnVoltarListar.setBounds(73, 225, 89, 23);
 		getContentPane().add(btnVoltarListar);
@@ -53,11 +52,15 @@ public class Listar extends JInternalFrame {
 				
 				for(int i=0;i<FrameMain.estudantes.size();i++) {
 					
+					txtListaResultado.append(FrameMain.estudantes.get(i).toString() + 
+							"\n--------------------------------");
+					
+					/*
 					String resultadoLista = FrameMain.estudantes.get(i).toString();
 					txtListaResultado.append(resultadoLista);
 					txtListaResultado.append("\n");
 					txtListaResultado.append("--------------------------------");
-					txtListaResultado.append("\n");
+					txtListaResultado.append("\n");*/
 					//System.out.println(FrameMain.estudantes.get(i).toString());
 					
 				}

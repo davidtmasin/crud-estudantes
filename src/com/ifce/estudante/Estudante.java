@@ -2,10 +2,10 @@ package com.ifce.estudante;
 
 public class Estudante {
 
-	String nome;
-	int idade;
-	String matricula;
-	String CPF;
+	private String nome;
+	private int idade;
+	private String matricula;
+	private String CPF;
 	
 	public Estudante(String nome, int idade, String matricula, String CPF) {
 	
@@ -23,5 +23,39 @@ public class Estudante {
 	public int retornaAnoNacimento(int idade) {
 		return 2021 - idade;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+	
+	
 	
 }
