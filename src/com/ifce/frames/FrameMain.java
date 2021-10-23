@@ -26,14 +26,18 @@ public class FrameMain extends JFrame {
 	private final Action action = new SwingAction();
 	private final Action action_1 = new SwingAction_1();
 	private final Action action_2 = new SwingAction_2();
+	private final Action action_3 = new SwingAction_3();
+	private final Action action_4 = new SwingAction_4();
+	private final Action action_5 = new SwingAction_5();
 	
 	CadastroEstudante cadastro;
 	Listar lista;
 	AboutCreator creator;
+	Alterar alterar;
 	
 	public static ArrayList<Estudante> estudantes = new ArrayList<Estudante>();
-	private final Action action_3 = new SwingAction_3();
-	private final Action action_4 = new SwingAction_4();
+	
+	
 
 	/**
 	 * Launch the application.
@@ -86,6 +90,7 @@ public class FrameMain extends JFrame {
 		menuSistema.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Alterar");
+		mntmNewMenuItem_2.setAction(action_5);
 		mntmNewMenuItem_2.setIcon(new ImageIcon(FrameMain.class.getResource("/com/ifce/midias/updating.png")));
 		menuSistema.add(mntmNewMenuItem_2);
 		
@@ -126,7 +131,7 @@ public class FrameMain extends JFrame {
 			cadastro = new CadastroEstudante();
 			desktopPane.add(cadastro);			
 			//cadastro.setVisible(true);
-			lista.setVisible(false);
+			//lista.setVisible(false);
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
@@ -149,7 +154,7 @@ public class FrameMain extends JFrame {
 			lista = new Listar();
 			desktopPane.add(lista);
 			//lista.setVisible(true);
-			cadastro.setVisible(false);
+			//cadastro.setVisible(false);
 		}
 	}
 	private class SwingAction_3 extends AbstractAction {
@@ -159,7 +164,6 @@ public class FrameMain extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			new Buscar(); //só assim já resolve
-			
 		}
 	}
 	private class SwingAction_4 extends AbstractAction {
@@ -169,9 +173,16 @@ public class FrameMain extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			creator = new AboutCreator();
-			desktopPane.add(creator);			
-			//cadastro.setVisible(true);
-			//creator.setVisible(false);
+			desktopPane.add(creator);	
+		}
+	}
+	private class SwingAction_5 extends AbstractAction {
+		public SwingAction_5() {
+			putValue(NAME, "Alterar");
+			putValue(SHORT_DESCRIPTION, "Alterar dados do estudante");
+		}
+		public void actionPerformed(ActionEvent e) {
+			new Alterar();
 		}
 	}
 }

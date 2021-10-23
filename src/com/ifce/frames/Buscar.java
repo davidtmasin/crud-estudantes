@@ -1,17 +1,16 @@
 package com.ifce.frames;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class Buscar extends JFrame {
 
@@ -46,14 +45,18 @@ public class Buscar extends JFrame {
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(int i = 0; i <FrameMain.estudantes.size();i++) {
-					if(textField.getText().equals(FrameMain.estudantes.get(i).getCPF())) {
-						
-						textArea.append(FrameMain.estudantes.get(i).toString());
+				if(textField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Por favor, digite um CPF!", "Atenção", JOptionPane.WARNING_MESSAGE);
+				} else {
+					for(int i = 0; i <FrameMain.estudantes.size();i++) {
+						if(textField.getText().equals(FrameMain.estudantes.get(i).getCPF())) {
+							textArea.append(FrameMain.estudantes.get(i).toString());
+						} 
 					}
-				}
+				}				
 			}
 		});
+				
 		btnNewButton.setBounds(335, 28, 89, 23);
 		contentPane.add(btnNewButton);
 		

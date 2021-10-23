@@ -64,16 +64,19 @@ public class AboutCreator extends JInternalFrame {
 		getContentPane().add(lblNewLabel_1_1_1);
 		
 		JLabel githubLabel = new JLabel("");
+		githubLabel.setToolTipText("github");
 		githubLabel.setIcon(new ImageIcon(AboutCreator.class.getResource("/com/ifce/midias/github.png")));
 		githubLabel.setBounds(25, 188, 16, 14);
 		getContentPane().add(githubLabel);
 		
 		JLabel githubLabel_1 = new JLabel("");
+		githubLabel_1.setToolTipText("linkedin");
 		githubLabel_1.setIcon(new ImageIcon(AboutCreator.class.getResource("/com/ifce/midias/linkedin.png")));
 		githubLabel_1.setBounds(25, 213, 16, 14);
 		getContentPane().add(githubLabel_1);
 		
 		JLabel githubLabel_1_1 = new JLabel("");
+		githubLabel_1_1.setToolTipText("gmail");
 		githubLabel_1_1.setIcon(new ImageIcon(AboutCreator.class.getResource("/com/ifce/midias/gmail.png")));
 		githubLabel_1_1.setBounds(25, 238, 16, 14);
 		getContentPane().add(githubLabel_1_1);
