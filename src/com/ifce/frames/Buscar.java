@@ -52,21 +52,31 @@ public class Buscar extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(Buscar.class.getResource("/com/ifce/midias/lupa.png")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textBusca.getText().equals("")) {
+				textArea.selectAll();
+				textArea.replaceSelection("");
+				
+				while(textBusca.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Por favor, digite um CPF!", "Atenção", JOptionPane.WARNING_MESSAGE);
-				} else {
-					for(int i = 0; i <FrameMain.estudantes.size();i++) {
-						
-						if(textBusca.getText().equals(FrameMain.estudantes.get(i).getCPF())) {
-							textArea.selectAll();
-							textArea.replaceSelection("");
-							textArea.append(FrameMain.estudantes.get(i).toString());
-							textArea.append("------------------------------------------------\n");
-						} else {
-							JOptionPane.showMessageDialog(null, "Não há aluno cadastrado para este CPF!", "Atenção", JOptionPane.WARNING_MESSAGE);
-						}
+					break;
+				} 
+							
+				for(int i = 0; i <FrameMain.estudantes.size();i++) {
+					String cpf = FrameMain.estudantes.get(i).getCPF();
+					String cpfDigitado = textBusca.getText();
+					if(cpf.equals(cpfDigitado)) {						
+						System.out.println(cpf);
+						System.out.println(cpfDigitado);
+						System.out.println(cpf.equals(cpfDigitado));
+						textArea.append(FrameMain.estudantes.get(i).toString());
+						textArea.append("------------------------------------------------\n");			
+					}		
+				}
+				/*for(int i = 0; i <FrameMain.estudantes.size();i++) {
+					if(FrameMain.estudantes.get(i).getCPF().contains(textBusca.getText())) {
+						System.out.println("O número digitado existe");
 					}
-				}				
+				}*/
+				
 			}
 		});
 				

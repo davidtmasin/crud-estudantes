@@ -102,7 +102,7 @@ public class Alterar extends JFrame {
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//CadastroEstudante.id = table.getSelectedRow();
+				int rowSelected = table.getSelectedRow();
 				
 				String nome = txtNome.getText();
 				int idade = Integer.parseInt(txtIdade.getText());
@@ -112,17 +112,27 @@ public class Alterar extends JFrame {
 				
 				for(int i=0;i<FrameMain.estudantes.size();i++) {
 					
+					if(FrameMain.estudantes.get(rowSelected).getId() == rowSelected) {
+						long idEstudante = FrameMain.estudantes.get(rowSelected).getId(); 
+						System.out.println("Estudante id: "+idEstudante);
+						System.out.println("Nome antes da edição: "+FrameMain.estudantes.get(i).getNome());
+						System.out.println("Idade antes da edição: "+FrameMain.estudantes.get(i).getIdade());
+						System.out.println("Matrícula antes da edição: "+FrameMain.estudantes.get(i).getMatricula());
+						System.out.println("CPF antes da edição: "+FrameMain.estudantes.get(i).getCPF());
+						
 						FrameMain.estudantes.get(i).setNome(nome);
 						FrameMain.estudantes.get(i).setIdade(idade);
 						FrameMain.estudantes.get(i).setMatricula(matricula);
 						FrameMain.estudantes.get(i).setCPF(cpf);
 						
+						break;
+					}						
 				}
 				
 				limpaRegistro();
 				
 				JOptionPane.showMessageDialog(null, "Contato alterado com sucesso.", "Sucesso na alteração", JOptionPane.INFORMATION_MESSAGE);
-				
+			
 				
 			}
 		});
@@ -145,7 +155,7 @@ public class Alterar extends JFrame {
 				
 				//Trazer dados
 				int num = table.getSelectedRow();
-				System.out.println(FrameMain.estudantes.get(num).getId());
+				System.out.println("Estudante id: "+FrameMain.estudantes.get(num).getId());
 				
 				for(int i=0;i<FrameMain.estudantes.size();i++) {					
 					txtNome.setText(table.getValueAt(num, 0).toString());
@@ -196,10 +206,10 @@ public void mostraRegistros() {
 				FrameMain.estudantes.get(i).getMatricula(),
 				FrameMain.estudantes.get(i).getCPF()
 		});
-		System.out.println(FrameMain.estudantes.get(i).getNome());
-		System.out.println(FrameMain.estudantes.get(i).getIdade());
-		System.out.println(FrameMain.estudantes.get(i).getMatricula());
-		System.out.println(FrameMain.estudantes.get(i).getCPF());
+		System.out.println("Nome: "+FrameMain.estudantes.get(i).getNome());
+		System.out.println("Idade: "+FrameMain.estudantes.get(i).getIdade());
+		System.out.println("Matricula: "+FrameMain.estudantes.get(i).getMatricula());
+		System.out.println("CPF: "+FrameMain.estudantes.get(i).getCPF());
 		System.out.println("------------------------------------------");
 		/**
 		 * 
