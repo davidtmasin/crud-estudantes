@@ -1,14 +1,16 @@
 package com.ifce.estudante;
 
 public class Estudante {
-
+	private Long id;
 	private String nome;
 	private int idade;
 	private String matricula;
 	private String CPF;
 	
-	public Estudante(String nome, int idade, String matricula, String CPF) {
+	public Estudante(){}
 	
+	public Estudante(Long id, String nome, int idade, String matricula, String CPF) {
+		this.id = id;
 		this.nome = nome;
 		this.idade = idade;
 		this.matricula = matricula;
@@ -17,11 +19,19 @@ public class Estudante {
 	}
 	
 	public String toString() {
-		return "Aluno(a): " + this.nome + "\nIdade: " + this.idade + "\nMatrícula: " + this.matricula + "\nCPF: " + this.CPF;
+		return "Aluno(a): " + this.nome + "\nIdade: " + this.idade + "\nMatrícula: " + this.matricula + "\nCPF: " + this.CPF + "\n";
 	}
 	
 	public int retornaAnoNacimento(int idade) {
 		return 2021 - idade;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -52,8 +62,8 @@ public class Estudante {
 		return CPF;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 	
 	

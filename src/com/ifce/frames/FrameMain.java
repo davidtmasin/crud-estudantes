@@ -35,6 +35,7 @@ public class FrameMain extends JFrame {
 	AboutCreator creator;
 	Alterar alterar;
 	
+	//ArrayList que vai receber os objetos Estudante
 	public static ArrayList<Estudante> estudantes = new ArrayList<Estudante>();
 	
 	
@@ -141,7 +142,7 @@ public class FrameMain extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			
-			System.exit(0);
+			dispose();
 			
 		}
 	}

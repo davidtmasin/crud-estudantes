@@ -49,11 +49,13 @@ public class Listar extends JInternalFrame {
 		JButton btnListar = new JButton("Listar");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtListaResultado.selectAll();
+				txtListaResultado.replaceSelection("");
 				for(int i=0;i<FrameMain.estudantes.size();i++) {
+					System.out.println("Estudante "+i+"\n"+FrameMain.estudantes.get(i));
 					
-					txtListaResultado.append(FrameMain.estudantes.get(i).toString() + 
-							"\n--------------------------------");
+					txtListaResultado.append("--------------------------------\n"+FrameMain.estudantes.get(i).toString() + 
+								"--------------------------------\n");
 					
 					/*
 					String resultadoLista = FrameMain.estudantes.get(i).toString();

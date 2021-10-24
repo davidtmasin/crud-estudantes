@@ -21,8 +21,7 @@ public class CadastroEstudante extends JInternalFrame {
 	private JTextField txtMatricula;
 	private JTextField txtCPF;
 	private final Action action = new SwingAction();
-
-
+	public static long id = 0;
 	/**
 	 * Create the frame.
 	 */
@@ -46,43 +45,44 @@ public class CadastroEstudante extends JInternalFrame {
 		setVisible(true);
 
 		
-		JLabel lblNewLabel = new JLabel("Nome:");
+		JLabel lblNewLabel = new JLabel("Nome");
 		lblNewLabel.setBounds(10, 27, 46, 14);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Idade:");
-		lblNewLabel_1.setBounds(10, 52, 46, 14);
+		JLabel lblNewLabel_1 = new JLabel("Idade");
+		lblNewLabel_1.setBounds(10, 60, 32, 14);
 		getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Matr\u00EDcula:");
-		lblNewLabel_2.setBounds(10, 77, 60, 14);
+		JLabel lblNewLabel_2 = new JLabel("Matr\u00EDcula");
+		lblNewLabel_2.setBounds(10, 94, 55, 14);
 		getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("CPF:");
-		lblNewLabel_3.setBounds(10, 105, 46, 14);
+		JLabel lblNewLabel_3 = new JLabel("CPF");
+		lblNewLabel_3.setBounds(10, 128, 24, 14);
 		getContentPane().add(lblNewLabel_3);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(76, 24, 140, 20);
+		txtNome.setBounds(75, 24, 153, 20);
 		getContentPane().add(txtNome);
 		txtNome.setColumns(10);
 		
 		txtIdade = new JTextField();
-		txtIdade.setBounds(76, 49, 40, 20);
+		txtIdade.setBounds(75, 57, 55, 20);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);
 		
 		txtMatricula = new JTextField();
-		txtMatricula.setBounds(76, 74, 140, 20);
+		txtMatricula.setBounds(75, 91, 153, 20);
 		getContentPane().add(txtMatricula);
 		txtMatricula.setColumns(10);
 		
 		txtCPF = new JTextField();
-		txtCPF.setBounds(76, 102, 140, 20);
+		txtCPF.setBounds(75, 125, 153, 20);
 		getContentPane().add(txtCPF);
 		txtCPF.setColumns(10);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setToolTipText("Cadastrar estudante");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -91,19 +91,22 @@ public class CadastroEstudante extends JInternalFrame {
 				String matricula = txtMatricula.getText();
 				String CPF = txtCPF.getText();
 								
-				Estudante estudante = new Estudante(nome, idade, matricula, CPF);
+				Estudante estudante = new Estudante(id, nome, idade, matricula, CPF);
 				
+				//Usando o arrayList para add os novos objetos Estudante que são criados aqui na função de cadastro
 				FrameMain.estudantes.add(estudante);
 				
-				JOptionPane.showMessageDialog(btnCadastrar, "Estudante cadastrado com sucesso!");
+				JOptionPane.showMessageDialog(btnCadastrar, "Estudante cadastrado com sucesso!", "Sucesso no cadastro", JOptionPane.INFORMATION_MESSAGE);
 				
 				
 				txtNome.setText("");
 				txtIdade.setText("");
 				txtMatricula.setText("");
 				txtCPF.setText("");		
+				id++;
 				
 				txtNome.grabFocus();
+				
 			
 			}
 		});
@@ -111,6 +114,7 @@ public class CadastroEstudante extends JInternalFrame {
 		getContentPane().add(btnCadastrar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setToolTipText("Retornar \u00E0 tela anterior");
 		btnVoltar.setAction(action);
 		btnVoltar.setBounds(64, 212, 108, 23);
 		getContentPane().add(btnVoltar);
