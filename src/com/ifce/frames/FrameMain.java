@@ -10,13 +10,14 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.ifce.estudante.Estudante;
-import javax.swing.JLabel;
 
 public class FrameMain extends JFrame {
 	JMenu menuSistema;
@@ -37,6 +38,7 @@ public class FrameMain extends JFrame {
 	
 	//ArrayList que vai receber os objetos Estudante
 	public static ArrayList<Estudante> estudantes = new ArrayList<Estudante>();
+	private final Action action_6 = new SwingAction_6();
 	
 	
 
@@ -96,6 +98,7 @@ public class FrameMain extends JFrame {
 		menuSistema.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Deletar");
+		mntmNewMenuItem_3.setAction(action_6);
 		mntmNewMenuItem_3.setIcon(new ImageIcon(FrameMain.class.getResource("/com/ifce/midias/delete.png")));
 		menuSistema.add(mntmNewMenuItem_3);
 		
@@ -184,6 +187,16 @@ public class FrameMain extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			new Alterar();
+		}
+	}
+	private class SwingAction_6 extends AbstractAction {
+		public SwingAction_6() {
+			putValue(NAME, "Deletar");
+			putValue(SHORT_DESCRIPTION, "Deletar registro de estudante");
+		}
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(null, "Funcionalidade em desenvolvimento...", "Em fase de desenvolvimento", JOptionPane.WARNING_MESSAGE);
+
 		}
 	}
 }
