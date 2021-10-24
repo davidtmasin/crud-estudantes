@@ -144,9 +144,17 @@ public class FrameMain extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Encerrar atividades.");
 		}
 		public void actionPerformed(ActionEvent e) {
-			System.exit(0);
-			//dispose();
-			
+			Object[] options = { "Quero sair", "Vou ficar" };
+			int resposta = JOptionPane.showOptionDialog(null, 
+					"Deseja sair do Sistema Escolar?", 
+					"Encerrar sistema", 
+					JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, 
+					null, options, options[0]);
+			//0=sim, 1=não
+			if(resposta == 0) {
+				System.exit(0);
+			}		
+			//dispose();			
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
